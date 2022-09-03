@@ -15,13 +15,18 @@ export default function Navbar() {
                     />
                 </Link>
                 <div className="border border-slate-200 flex items-center bg-white h-10 px-5 rounded-lg text-sm ring-emerald-200">
+                    
                     <Search />
                     <img
                         className="inline h-4 cursor-pointer"
                         src={searchImage}
                         alt="Search"
                     />
+
                 </div>
+                <span className="bg-red-600 text-white px-4 pt-2 rounded-full cursor-pointer">
+                    Reset
+                </span>
             </div>
         </nav>
     );
