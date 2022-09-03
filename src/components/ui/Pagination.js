@@ -8,7 +8,9 @@ export default function Pagination() {
   // ?_page=2&_limit=5
   return (
     <section className='pt-12'>
+
       <div className='max-w-7xl mx-auto px-5 py-6 lg:px-0 flex gap-2 justify-end'>
+        <span className="bg-purple-600 text-white px-4 py-1 rounded-full cursor-pointer">Total videos : {totalVideos}</span>
         {[...Array(pageNumber)].map((_, index) => <Paginate key={index} index={index} />)}
       </div>
     </section>
