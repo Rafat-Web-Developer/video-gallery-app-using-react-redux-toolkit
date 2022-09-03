@@ -3,6 +3,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 const initialState = {
     tags: [],
     search: "",
+    pageNumber: 1
 };
 
 const filterSlice = createSlice({
@@ -22,8 +23,11 @@ const filterSlice = createSlice({
         searched: (state, action) => {
             state.search = action.payload;
         },
+        pageSelect: (state, action) => {
+            state.pageNumber = action.payload;
+        },
     },
 });
 
 export default filterSlice.reducer;
-export const { tagSelected, tagRemoved, searched } = filterSlice.actions;
+export const { tagSelected, tagRemoved, searched, pageSelect } = filterSlice.actions;
