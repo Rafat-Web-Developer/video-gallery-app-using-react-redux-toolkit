@@ -3,7 +3,7 @@ import { likeVideo } from "./likeVideoAPI";
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 const initialState = {
-  video: {},
+  afterLikeVideo: {},
   isLoading: false,
   isError: false,
   error: "",
@@ -12,8 +12,8 @@ const initialState = {
 // async thunk
 export const fetchLikedVideo = createAsyncThunk(
   "video/fetchLikedVideo",
-  async ({ videoId, likes }) => {
-    const video = await likeVideo(videoId, likes);
+  async ({ id, likes }) => {
+    const video = await likeVideo(id, likes);
     return video;
   }
 );
@@ -29,11 +29,11 @@ const likeVideoSlice = createSlice({
       })
       .addCase(fetchLikedVideo.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.video = action.payload;
+        state.afterLikeVideo = action.payload;
       })
       .addCase(fetchLikedVideo.rejected, (state, action) => {
         state.isLoading = false;
-        state.video = {};
+        state.afterLikeVideo = {};
         state.isError = true;
         state.error = action.error?.message;
       });
