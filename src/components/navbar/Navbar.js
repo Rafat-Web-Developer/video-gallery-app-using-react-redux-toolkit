@@ -32,6 +32,7 @@ export default function Navbar() {
           Reset
         </span>
       </div>
+      
     </nav>
   );
 }
